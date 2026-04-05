@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login - Smart Internship Tracker</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #2563EB 0%, #1E40AF 50%, #1E3A8A 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+
+    .container {
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      max-width: 420px;
+      width: 100%;
+      padding: 48px 32px;
+    }
+
+    h1 {
+      color: #1F2937;
+      margin-bottom: 10px;
+      text-align: center;
+      font-size: 28px;
+      font-weight: 700;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: #6B7280;
+      margin-bottom: 30px;
+      font-size: 13px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      color: #1F2937;
+      font-weight: 600;
+      margin-bottom: 8px;
+      font-size: 14px;
+    }
+
+    input,
+    select {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1px solid #E5E7EB;
+      border-radius: 8px;
+      font-size: 14px;
+      font-family: inherit;
+      transition: all 0.3s ease;
+    }
+
+    input:focus,
+    select:focus {
+      outline: none;
+      border-color: #2563EB;
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+    }
+
+    .role-selector {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+
+    .role-option {
+      position: relative;
+    }
+
+    .role-option input[type="radio"] {
+      display: none;
+    }
+
+    .role-label {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      padding: 16px;
+      border: 2px solid #E5E7EB;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-align: center;
+    }
+
+    .role-option input[type="radio"]:checked + .role-label {
+      border-color: #2563EB;
+      background-color: #EFF6FF;
+    }
+
+    .role-icon {
+      font-size: 32px;
+    }
+
+    .role-name {
+      font-size: 14px;
+      font-weight: 600;
+      color: #1F2937;
+    }
+
+    .role-desc {
+      font-size: 11px;
+      color: #6B7280;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px 24px;
+      background: #2563EB;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-family: inherit;
+    }
+
+    button:hover {
+      background: #1E40AF;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(37, 99, 235, 0.3);
+    }
+
+    button:active {
+      transform: translateY(0);
+    }
+
+    .error-message {
+      background-color: #FEE2E2;
+      color: #DC2626;
+      padding: 12px 16px;
+      border-radius: 8px;
+      font-size: 13px;
+      margin-bottom: 16px;
+      display: none;
+    }
+
+    .error-message.show {
+      display: block;
+    }
+
+    .disclaimer {
+      text-align: center;
+      font-size: 12px;
+      color: #9CA3AF;
+      margin-top: 20px;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🎯 CareerTrack</h1>
+    <p class="subtitle">Smart Internship & Job Application Tracker</p>
+
+    <div id="error-message" class="error-message"></div>
+
+    <!-- Login Form -->
+    <form id="loginForm">
+      <div class="form-group">
+        <label>Select Your Role</label>
+        <div class="role-selector">
+          <div class="role-option">
+            <input type="radio" id="role-intern" name="role" value="intern" checked>
+            <label for="role-intern" class="role-label">
+              <div class="role-icon">👨‍🎓</div>
+              <div class="role-name">Intern</div>
+              <div class="role-desc">Looking for jobs</div>
+            </label>
+          </div>
+
+          <div class="role-option">
+            <input type="radio" id="role-recruiter" name="role" value="recruiter">
+            <label for="role-recruiter" class="role-label">
+              <div class="role-icon">🏢</div>
+              <div class="role-name">Recruiter</div>
+              <div class="role-desc">Hiring candidates</div>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" placeholder="Enter your password" required>
+      </div>
+
+      <button type="submit">Login</button>
+    </form>
+
+    <!-- Register Form (Initially Hidden) -->
+    <form id="registerForm" style="display: none;">
+      <div class="form-group">
+        <label>Select Your Role</label>
+        <div class="role-selector">
+          <div class="role-option">
+            <input type="radio" id="reg-role-intern" name="role" value="intern" checked>
+            <label for="reg-role-intern" class="role-label">
+              <div class="role-icon">👨‍🎓</div>
+              <div class="role-name">Intern</div>
+              <div class="role-desc">Looking for jobs</div>
+            </label>
+          </div>
+
+          <div class="role-option">
+            <input type="radio" id="reg-role-recruiter" name="role" value="recruiter">
+            <label for="reg-role-recruiter" class="role-label">
+              <div class="role-icon">🏢</div>
+              <div class="role-name">Recruiter</div>
+              <div class="role-desc">Hiring candidates</div>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="reg-name">Full Name</label>
+        <input type="text" id="reg-name" name="name" placeholder="Enter your full name" required>
+      </div>
+
+      <div class="form-group">
+        <label for="reg-email">Email Address</label>
+        <input type="email" id="reg-email" name="email" placeholder="your.email@example.com" required>
+      </div>
+
+      <div class="form-group">
+        <label for="reg-password">Password</label>
+        <input type="password" id="reg-password" name="password" placeholder="Create a password" required>
+      </div>
+
+      <div class="form-group">
+        <label for="reg-confirm-password">Confirm Password</label>
+        <input type="password" id="reg-confirm-password" name="confirmPassword" placeholder="Confirm your password" required>
+      </div>
+
+      <button type="submit">Create Account</button>
+    </form>
+
+    <div class="disclaimer">
+      <p>Demo Mode: Use any email and password to proceed</p>
+      <p style="margin-top: 16px; font-size: 13px;">
+        <span id="login-link-text">Don't have an account? <a href="#" style="color: #2563EB; text-decoration: none; font-weight: 600;" onclick="switchToRegister(event)">Create one here</a></span>
+        <span id="register-link-text" style="display: none;">Already have an account? <a href="#" style="color: #2563EB; text-decoration: none; font-weight: 600;" onclick="switchToLogin(event)">Login here</a></span>
+      </p>
+    </div>
+  </div>
+
+  <script>
+    // Check if already logged in
+    if (localStorage.getItem('isLoggedIn') === 'true') {
+      const role = localStorage.getItem('role');
+      if (role === 'intern') {
+        window.location.href = 'index.html';
+      } else if (role === 'recruiter') {
+        window.location.href = 'company.html';
+      }
+    }
+
+    // Switch to Register Form
+    function switchToRegister(e) {
+      e.preventDefault();
+      document.getElementById('loginForm').style.display = 'none';
+      document.getElementById('registerForm').style.display = 'block';
+      document.getElementById('login-link-text').style.display = 'none';
+      document.getElementById('register-link-text').style.display = 'block';
+      document.querySelector('.login-header h1').textContent = 'Create Account';
+      document.querySelector('.login-header p').textContent = 'Join CareerTrack today';
+    }
+
+    // Switch to Login Form
+    function switchToLogin(e) {
+      e.preventDefault();
+      document.getElementById('loginForm').style.display = 'block';
+      document.getElementById('registerForm').style.display = 'none';
+      document.getElementById('login-link-text').style.display = 'block';
+      document.getElementById('register-link-text').style.display = 'none';
+      document.querySelector('.login-header h1').textContent = 'CareerTrack';
+      document.querySelector('.login-header p').textContent = 'Smart Internship & Job Application Tracker';
+    }
+
+    // Handle login form submission
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const role = document.querySelector('input[name="role"]:checked').value;
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      
+      if (!email || !password) {
+        showError('Please fill in all fields');
+        return;
+      }
+      
+      // Store full user object in localStorage
+      const user = {
+        name: extractNameFromEmail(email),
+        email: email,
+        role: role
+      };
+      localStorage.setItem('user', JSON.stringify(user));
+      localStorage.setItem('role', role);
+      localStorage.setItem('userEmail', email);
+      localStorage.setItem('userName', user.name);
+      localStorage.setItem('isLoggedIn', 'true');
+      
+      // Redirect based on role
+      if (role === 'intern') {
+        window.location.href = 'index.html';
+      } else {
+        window.location.href = 'company.html';
+      }
+    });
+
+    // Handle register form submission
+    document.getElementById('registerForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const role = document.querySelector('input[name="role"]:checked').value;
+      const name = document.getElementById('reg-name').value;
+      const email = document.getElementById('reg-email').value;
+      const password = document.getElementById('reg-password').value;
+      const confirmPassword = document.getElementById('reg-confirm-password').value;
+      
+      if (!name || !email || !password || !confirmPassword) {
+        showError('❌ Please fill in all fields');
+        return;
+      }
+      
+      if (password !== confirmPassword) {
+        showError('❌ Passwords do not match');
+        return;
+      }
+
+      if (password.length < 6) {
+        showError('❌ Password must be at least 6 characters');
+        return;
+      }
+      
+      // Store full user object in localStorage
+      const user = {
+        name: name,
+        email: email,
+        role: role
+      };
+      localStorage.setItem('user', JSON.stringify(user));
+      localStorage.setItem('role', role);
+      localStorage.setItem('userEmail', email);
+      localStorage.setItem('userName', name);
+      localStorage.setItem('isLoggedIn', 'true');
+      
+      showError('✅ Account created successfully! Redirecting...');
+      
+      // Redirect based on role after 2 seconds
+      setTimeout(() => {
+        if (role === 'intern') {
+          window.location.href = 'index.html';
+        } else {
+          window.location.href = 'company.html';
+        }
+      }, 2000);
+    });
+    
+    function extractNameFromEmail(email) {
+      if (!email) return 'User';
+      const localPart = email.split('@')[0];
+      const parts = localPart
+        .split('.')
+        .filter(part => !/^\d+$/.test(part))
+        .map(part => part.charAt(0).toUpperCase() + part.slice(1).toLowerCase())
+        .join(' ');
+      return parts || 'User';
+    }
+    
+    function showError(message) {
+      const errorDiv = document.getElementById('error-message');
+      errorDiv.textContent = message;
+      errorDiv.classList.add('show');
+      
+      setTimeout(() => {
+        errorDiv.classList.remove('show');
+      }, 4000);
+    }
+  </script>
+</body>
+</html>

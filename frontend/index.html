@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Internship & Job Tracker - Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=2.0">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <span class="logo-icon">📊</span>
+                    <span class="logo-text">CareerTrack</span>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="index.html" class="nav-link active" data-page="dashboard">
+                    <span class="nav-icon">📈</span>
+                    <span>Dashboard</span>
+                </a>
+                <a href="browse-jobs.html" class="nav-link" data-page="browse-jobs">
+                    <span class="nav-icon">🔍</span>
+                    <span>Browse Jobs</span>
+                </a>
+                <a href="add.html" class="nav-link" data-page="add">
+                    <span class="nav-icon">➕</span>
+                    <span>Add Application</span>
+                </a>
+                <a href="profile.html" class="nav-link" data-page="profile">
+                    <span class="nav-icon">👤</span>
+                    <span>Profile</span>
+                </a>
+                <a href="company.html" class="nav-link" data-page="company">
+                    <span class="nav-icon">🏢</span>
+                    <span>Company Dashboard</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <button class="logout-btn">
+                    <span class="nav-icon">🚪</span>
+                    <span>Logout</span>
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Dashboard Page -->
+            <div class="page-content" id="dashboard-page">
+    <div class="header">
+                    <div class="header-title">
+                        <h1>Hello, Shravani! 👋</h1>
+                        <p class="header-subtitle">Track your job applications and stay organized</p>
+                    </div>
+                    <div class="header-action">
+                        <a href="add.html" class="btn btn-primary">+ New Application</a>
+                    </div>
+                </div>
+
+                <!-- Summary Cards -->
+                <div class="summary-cards">
+                    <div class="card summary-card">
+                        <div class="card-icon applied">📋</div>
+                        <div class="card-content">
+                            <div class="card-value" id="total-applications">0</div>
+                            <div class="card-label">Total Applications</div>
+                        </div>
+                    </div>
+
+                    <div class="card summary-card">
+                        <div class="card-icon interview">🎤</div>
+                        <div class="card-content">
+                            <div class="card-value" id="total-interviews">0</div>
+                            <div class="card-label">Interviews</div>
+                        </div>
+                    </div>
+
+                    <div class="card summary-card">
+                        <div class="card-icon offer">🎉</div>
+                        <div class="card-content">
+                            <div class="card-value" id="total-offers">0</div>
+                            <div class="card-label">Offers</div>
+                        </div>
+                    </div>
+
+                    <div class="card summary-card">
+                        <div class="card-icon rejected">❌</div>
+                        <div class="card-content">
+                            <div class="card-value" id="total-rejected">0</div>
+                            <div class="card-label">Rejected</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Applications -->
+                <section class="applications-section">
+                    <div class="section-header">
+                        <h2>Recent Applications</h2>
+                        <a href="#" class="view-all-link">View All →</a>
+                    </div>
+
+                    <div id="applications-list" class="applications-list">
+                        <div class="empty-state">
+                            <div class="empty-icon">📂</div>
+                            <h3>No applications yet</h3>
+                            <p>Start by adding your first job application!</p>
+                            <a href="add.html" class="btn btn-primary">Add Application</a>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application Detail - Smart Internship & Job Tracker</title>
+    <link rel="stylesheet" href="style.css?v=2.0">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <span class="logo-icon">📊</span>
+                    <span class="logo-text">CareerTrack</span>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="index.html" class="nav-link" data-page="dashboard">
+                    <span class="nav-icon">📈</span>
+                    <span>Dashboard</span>
+                </a>
+                <a href="add.html" class="nav-link" data-page="add">
+                    <span class="nav-icon">➕</span>
+                    <span>Add Application</span>
+                </a>
+                <a href="profile.html" class="nav-link" data-page="profile">
+                    <span class="nav-icon">👤</span>
+                    <span>Profile</span>
+                </a>
+                <a href="company.html" class="nav-link" data-page="company">
+                    <span class="nav-icon">🏢</span>
+                    <span>Company Dashboard</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <button class="logout-btn">
+                    <span class="nav-icon">🚪</span>
+                    <span>Logout</span>
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="page-content">
+                <div class="header">
+                    <div class="header-title">
+                        <h1 id="detail-company-name">Application Details</h1>
+                        <p class="header-subtitle" id="detail-job-role"></p>
+                    </div>
+                    <div class="header-action">
+                        <a href="index.html" class="btn btn-secondary">← Back</a>
+                    </div>
+                </div>
+
+                <!-- Detail Card -->
+                <div class="detail-container">
+                    <div class="card detail-card">
+                        <div class="detail-header">
+                            <div class="detail-title">
+                                <h2 id="detail-title"></h2>
+                                <span class="badge" id="detail-badge"></span>
+                            </div>
+                            <div class="detail-actions">
+                                <button class="btn btn-secondary-small" id="edit-btn">Edit</button>
+                                <button class="btn btn-danger-small" id="delete-btn">Delete</button>
+                            </div>
+                        </div>
+
+                        <div class="detail-content">
+                            <div class="detail-row">
+                                <div class="detail-label">Company</div>
+                                <div class="detail-value" id="detail-company"></div>
+                            </div>
+
+                            <div class="detail-row">
+                                <div class="detail-label">Position</div>
+                                <div class="detail-value" id="detail-position"></div>
+                            </div>
+
+                            <div class="detail-row">
+                                <div class="detail-label">Application Date</div>
+                                <div class="detail-value" id="detail-date"></div>
+                            </div>
+
+                            <div class="detail-row">
+                                <div class="detail-label">Salary</div>
+                                <div class="detail-value" id="detail-salary">Not specified</div>
+                            </div>
+
+                            <div class="detail-row">
+                                <div class="detail-label">Status</div>
+                                <div class="detail-value" id="detail-status"></div>
+                            </div>
+
+                            <div id="interview-date-info" style="display: none;">
+                                <div class="detail-row interview-date">
+                                    <div class="detail-label">📅 Interview Date</div>
+                                    <div class="detail-value"></div>
+                                </div>
+                            </div>
+
+                            <div class="detail-row">
+                                <div class="detail-label">Notes</div>
+                                <div class="detail-value" id="detail-notes">No notes added</div>
+                            </div>
+                        </div>
+
+                        <!-- Status Pipeline -->
+                        <div class="status-pipeline">
+                            <h3>Status Pipeline</h3>
+                            <div class="pipeline-stages">
+                                <div class="pipeline-stage" data-status="Applied">
+                                    <div class="stage-icon">📋</div>
+                                    <div class="stage-label">Applied</div>
+                                </div>
+                                <div class="pipeline-arrow">→</div>
+                                <div class="pipeline-stage" data-status="Interview">
+                                    <div class="stage-icon">🎤</div>
+                                    <div class="stage-label">Interview</div>
+                                </div>
+                                <div class="pipeline-arrow">→</div>
+                                <div class="pipeline-stage" data-status="Offer">
+                                    <div class="stage-icon">🎉</div>
+                                    <div class="stage-label">Offer</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Status Update Actions -->
+                        <div class="action-buttons">
+                            <button class="btn btn-primary" id="next-stage-btn">Move to Next Stage</button>
+                            <button class="btn btn-danger" id="reject-btn">Reject Application</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Edit Modal -->
+    <div id="edit-modal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Edit Application</h2>
+                <button class="modal-close" id="modal-close">&times;</button>
+            </div>
+            <form id="edit-form" class="modal-form">
+                <div class="form-group">
+                    <label for="edit-company-name">Company Name</label>
+                    <input type="text" id="edit-company-name" name="companyName" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="edit-job-role">Job Role</label>
+                    <input type="text" id="edit-job-role" name="jobRole" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="edit-application-date">Application Date</label>
+                    <input type="date" id="edit-application-date" name="applicationDate" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="edit-status">Status</label>
+                    <select id="edit-status" name="status" required>
+                        <option value="Applied">Applied</option>
+                        <option value="Interview">Interview</option>
+                        <option value="Offer">Offer</option>
+                        <option value="Rejected">Rejected</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="edit-salary">Expected Salary</label>
+                    <input type="text" id="edit-salary" name="salary">
+                </div>
+
+                <div class="form-group">
+                    <label for="edit-notes">Notes</label>
+                    <textarea id="edit-notes" name="notes" rows="4"></textarea>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary" id="cancel-edit">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

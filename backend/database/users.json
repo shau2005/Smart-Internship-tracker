@@ -1,0 +1,64 @@
+[
+  {
+    "id": 1,
+    "name": "Rahul Kumar",
+    "email": "rahul@example.com",
+    "password": "pass123",
+    "userType": "student",
+    "resume": "B.Tech Computer Science student with Java and Web Development skills",
+    "phone": "9876543210",
+    "createdAt": "2024-01-15"
+  },
+  {
+    "id": 2,
+    "name": "Priya Singh",
+    "email": "priya@example.com",
+    "password": "pass123",
+    "userType": "student",
+    "resume": "B.Tech IT student interested in Python and Data Science",
+    "phone": "9876543211",
+    "createdAt": "2024-01-16"
+  },
+  {
+    "id": 3,
+    "name": "Amit Patel",
+    "email": "amit@example.com",
+    "password": "pass123",
+    "userType": "student",
+    "resume": "B.Tech Electronics Engineering student with C++ and Embedded Systems knowledge",
+    "phone": "9876543212",
+    "createdAt": "2024-01-17"
+  },
+  {
+    "id": 4,
+    "name": "TechCorp HR",
+    "email": "hr@techcorp.com",
+    "password": "pass123",
+    "userType": "recruiter",
+    "companyName": "TechCorp Solutions",
+    "companyWebsite": "www.techcorp.com",
+    "createdAt": "2024-01-10"
+  },
+  {
+    "id": 5,
+    "name": "StartupXYZ HR",
+    "email": "careers@startupxyz.com",
+    "password": "pass123",
+    "userType": "recruiter",
+    "companyName": "StartupXYZ",
+    "companyWebsite": "www.startupxyz.com",
+    "createdAt": "2024-01-12"
+  },
+  {
+    "id": 6,
+    "name": "Shravani Bhosale",
+    "email": "2023.shravani.bhosale@ves.ac.in",
+    "password": "mai@hotikonhu1234",
+    "userType": "student",
+    "resume": "",
+    "phone": "",
+    "companyName": "",
+    "companyWebsite": "",
+    "createdAt": "2026-04-05"
+  }
+]

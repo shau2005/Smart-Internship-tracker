@@ -1,0 +1,21 @@
+{
+  "name": "smart-internship-tracker",
+  "version": "1.0.0",
+  "description": "A beginner-friendly full-stack internship/job tracking portal built with Node.js, Express, and HTML",
+  "main": "backend/server.js",
+  "scripts": {
+    "start": "node backend/server.js",
+    "dev": "nodemon backend/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["internship", "job", "tracker", "express", "nodejs"],
+  "author": "Your Name",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^2.2.2",
+    "cors": "^2.8.6",
+    "express": "^5.2.1",
+    "nodemon": "^3.1.14"
+  }
+}
+

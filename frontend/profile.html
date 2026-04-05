@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - Smart Internship & Job Tracker</title>
+    <link rel="stylesheet" href="style.css?v=2.0">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <span class="logo-icon">📊</span>
+                    <span class="logo-text">CareerTrack</span>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="index.html" class="nav-link" data-page="dashboard">
+                    <span class="nav-icon">📈</span>
+                    <span>Dashboard</span>
+                </a>
+                <a href="add.html" class="nav-link" data-page="add">
+                    <span class="nav-icon">➕</span>
+                    <span>Add Application</span>
+                </a>
+                <a href="profile.html" class="nav-link active" data-page="profile">
+                    <span class="nav-icon">👤</span>
+                    <span>Profile</span>
+                </a>
+                <a href="company.html" class="nav-link" data-page="company">
+                    <span class="nav-icon">🏢</span>
+                    <span>Company Dashboard</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <button class="logout-btn">
+                    <span class="nav-icon">🚪</span>
+                    <span>Logout</span>
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="page-content">
+                <div class="header">
+                    <div class="header-title">
+                        <h1>My Profile</h1>
+                        <p class="header-subtitle">Manage your profile and preferences</p>
+                    </div>
+                </div>
+
+                <!-- Profile Cards -->
+                <div class="profile-container">
+                    <!-- Profile Info Card -->
+                    <div class="card profile-card">
+                        <div class="profile-header">
+                            <div class="profile-avatar">👤</div>
+                            <div class="profile-info">
+                                <h2>Shravani Bhosale</h2>
+                                <p class="profile-email">shravani@example.com</p>
+                                <span class="badge badge-green">Actively Looking</span>
+                            </div>
+                        </div>
+
+                        <div class="profile-details">
+                            <div class="detail-group">
+                                <label>Email</label>
+                                <p>shravani@example.com</p>
+                            </div>
+
+                            <div class="detail-group">
+                                <label>Phone</label>
+                                <p>+1 (555) 123-4567</p>
+                            </div>
+
+                            <div class="detail-group">
+                                <label>Location</label>
+                                <p>San Francisco, CA</p>
+                            </div>
+
+                            <div class="detail-group">
+                                <label>Interested Roles</label>
+                                <p>Software Engineer, Data Scientist, Product Manager</p>
+                            </div>
+
+                            <div class="detail-group">
+                                <label>Skills</label>
+                                <div class="skills-list">
+                                    <span class="skill-tag">JavaScript</span>
+                                    <span class="skill-tag">React</span>
+                                    <span class="skill-tag">Node.js</span>
+                                    <span class="skill-tag">Python</span>
+                                    <span class="skill-tag">SQL</span>
+                                    <span class="skill-tag">CSS</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="profile-actions">
+                            <button class="btn btn-secondary">Edit Profile</button>
+                        </div>
+                    </div>
+
+                    <!-- Resume Card -->
+                    <div class="card profile-section">
+                        <div class="section-title">
+                            <h3>📄 Resume</h3>
+                        </div>
+
+                        <div class="resume-upload">
+                            <div class="upload-area">
+                                <div class="upload-icon">📁</div>
+                                <h4>Upload Your Resume</h4>
+                                <p>Drag and drop your resume or click to select</p>
+                                <input type="file" id="resume-upload" accept=".pdf,.doc,.docx" style="display: none;">
+                                <button type="button" class="btn btn-secondary" onclick="document.getElementById('resume-upload').click()">
+                                    Choose File
+                                </button>
+                            </div>
+                            <div id="resume-info" class="resume-info hidden">
+                                <p id="resume-filename"></p>
+                                <button type="button" class="btn btn-danger-small" onclick="clearResume()">Remove</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Settings Card -->
+                    <div class="card profile-section">
+                        <div class="section-title">
+                            <h3>⚙️ Settings</h3>
+                        </div>
+
+                        <div class="settings-list">
+                            <div class="setting-item">
+                                <div class="setting-label">
+                                    <h4>Email Notifications</h4>
+                                    <p>Get updates about new opportunities</p>
+                                </div>
+                                <label class="toggle">
+                                    <input type="checkbox" checked>
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+
+                            <div class="setting-item">
+                                <div class="setting-label">
+                                    <h4>Application Reminders</h4>
+                                    <p>Remind me to follow up on applications</p>
+                                </div>
+                                <label class="toggle">
+                                    <input type="checkbox" checked>
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+
+                            <div class="setting-item">
+                                <div class="setting-label">
+                                    <h4>Show Profile to Companies</h4>
+                                    <p>Allow companies to view your profile</p>
+                                </div>
+                                <label class="toggle">
+                                    <input type="checkbox" checked>
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Danger Zone -->
+                    <div class="card profile-section danger-section">
+                        <div class="section-title">
+                            <h3>🚨 Danger Zone</h3>
+                        </div>
+
+                        <div class="danger-actions">
+                            <button class="btn btn-danger">Reset All Data</button>
+                            <button class="btn btn-danger">Delete Account</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

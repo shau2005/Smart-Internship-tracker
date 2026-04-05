@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "jobId": 1,
+    "studentId": 1,
+    "studentName": "Rahul Kumar",
+    "jobTitle": "Java Developer Internship",
+    "company": "TechCorp Solutions",
+    "coverLetter": "I am very interested in this Java Developer position. I have hands-on experience with Spring Boot.",
+    "status": "applied",
+    "appliedDate": "2024-01-21",
+    "appliedTime": "10:30 AM"
+  },
+  {
+    "id": 2,
+    "jobId": 3,
+    "studentId": 2,
+    "studentName": "Priya Singh",
+    "jobTitle": "React Frontend Developer Internship",
+    "company": "StartupXYZ",
+    "coverLetter": "I am excited to apply for this React position. I have built multiple projects with React and modern JavaScript.",
+    "status": "applied",
+    "appliedDate": "2024-01-21",
+    "appliedTime": "02:15 PM"
+  },
+  {
+    "id": 3,
+    "jobId": 2,
+    "studentId": 3,
+    "studentName": "Amit Patel",
+    "jobTitle": "Python Data Science Internship",
+    "company": "TechCorp Solutions",
+    "coverLetter": "I want to pursue data science and have strong Python fundamentals. Excited to learn machine learning.",
+    "status": "under-review",
+    "appliedDate": "2024-01-20",
+    "appliedTime": "09:45 AM"
+  }
+]
